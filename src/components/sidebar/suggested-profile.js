@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import {
-  updateLoggedInUserFollowing,
-  updateFollowedUserFollowers,
-  getUserByUserId
-} from '../../serviecs/firebase';
+import { updateLoggedInUserFollowing, updateFollowedUserFollowers } from '../../serviecs/firebase';
 
 export default function SuggestedProfile({
   profileDocId,
@@ -20,7 +16,6 @@ export default function SuggestedProfile({
     setFollowed(true);
     await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
     await updateFollowedUserFollowers(profileDocId, userId, false);
-    const [user] = await getUserByUserId(userId);
   }
   return !followed ? (
     <div className="flex flex-row items-center align-items justify-between">
