@@ -5,7 +5,7 @@ export default function NotNfound() {
     document.title = 'Not Found! - Mapstagram';
   }, []);
   return (
-    <div clasName="bg-gray-background">
+    <div className="bg-gray-background">
       <div className="mx-auth max-w-srceen-lg">
         <p className="text-center text-2xl">Not Found!</p>
       </div>
