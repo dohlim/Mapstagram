@@ -8,7 +8,7 @@ export default function NotNfound() {
   return (
     <div className="bg-gray-background">
       <Header />
-      <div className="mx-auth max-w-srceen-lg">
+      <div className="mx-auto max-w-srceen-lg">
         <p className="text-center text-2xl">Not Found!</p>
       </div>
     </div>

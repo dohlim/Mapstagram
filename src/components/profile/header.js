@@ -38,7 +38,7 @@ export default function Header({
       setIsFollowingProfile(!!isFollowing);
     };
 
-    if (user.username && profileUserId) {
+    if (user?.username && profileUserId) {
       isLoggedInUserFollowingProfile();
     }
   }, [user?.username, profileUserId]);

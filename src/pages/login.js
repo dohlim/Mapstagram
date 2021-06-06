@@ -31,7 +31,7 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="container flex mx-auto max-w-sereen-md items-center h-screen">
+    <div className="container flex mx-auto max-w-screen-md items-center h-screen">
       <div className="flex w-3/5">
         <img src="/images/iphone-with-profile.jpg" alt="iPhone with Instagram app" />
       </div>
@@ -65,7 +65,7 @@ export default function Login() {
               className={`bg-blue-medium text-white w-full rounded h-8 font-bold
               ${isInvalid && 'opacity-50'}`}
             >
-              Log In
+              Login
             </button>
           </form>
         </div>
