@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import * as ROUTES from '../constants/routes';
-import { doseUsernameExist } from '../serviecs/firebase';
+import { doesUsernameExist } from '../serviecs/firebase';
 
 export default function SignUp() {
   const history = useHistory();
@@ -19,7 +19,7 @@ export default function SignUp() {
   const handleSignUp = async (event) => {
     event.preventDefault();
 
-    const usernameExists = await doseUsernameExist(username);
+    const usernameExists = await doesUsernameExist(username);
     if (!usernameExists.length) {
       try {
         const createdUserResult = await firebase
