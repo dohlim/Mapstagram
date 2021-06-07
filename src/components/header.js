@@ -23,6 +23,13 @@ export default function Header() {
               </Link>
             </h1>
           </div>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="seach"
+              className="border px-1 text-sm bg-gray-200 rounded-sm m-5"
+            />
+          </div>
           <div className="text-gray-700 text-center flex items-center align-items">
             {loggedInUser ? (
               <>
