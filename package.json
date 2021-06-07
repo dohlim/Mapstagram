@@ -9,12 +9,13 @@
         "@welldone-software/why-did-you-render": "^6.1.4",
         "date-fns": "^2.22.1",
         "firebase": "^8.6.3",
+        "porp-types": "^0.0.1-security",
+        "prop-types": "^15.7.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-loading-skeleton": "^2.2.0",
         "react-router-dom": "^5.2.0",
         "react-scripts": "4.0.3",
-        "prop-types": "^15.7.2",
         "web-vitals": "^1.0.1"
     },
     "devDependencies": {
@@ -32,14 +33,14 @@
         "postcss": "^8.3.0",
         "postcss-cli": "^8.3.1",
         "prettier": "^2.3.0",
-        "tailwindcss": "^2.1.4",
-        "prop-types": "^15.7.2"
+        "prop-types": "^15.7.2",
+        "tailwindcss": "^2.1.4"
     },
     "scripts": {
         "build:css": "postcss src/styles/tailwind.css -o src/styles/app.css",
         "watch:css": "postcss src/styles/tailwind.css -o src/styles/app.css --watch",
         "react-scripts:start": "sleep 5 && react-scripts start",
-        "start": "run-p watch:css react-scripts start",
+        "start": "run-p watch:css react-scripts:start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
