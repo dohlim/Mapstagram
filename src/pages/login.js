@@ -31,9 +31,9 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="container flex mx-auto max-w-screen-md items-center h-screen">
-      <div className="flex w-3/5">
-        <img src="/images/iphone-with-profile.jpg" alt="iPhone with Instagram app" />
+    <div className="container flex mx-auto max-w-screen-xl items-center h-screen">
+      <div className="flex w-3/6 ml-10 mr-5">
+        <img src="/images/mapstagram-login2.png" alt="iPhone with Instagram app" />
       </div>
       <div className="flex flex-col w-2/5">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">

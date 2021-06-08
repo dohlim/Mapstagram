@@ -34,7 +34,7 @@ export default function SuggestedProfile({
         type="button"
         onClick={handleFollowUser}
       >
-        Follow
+        팔로우
       </button>
     </div>
   ) : null;

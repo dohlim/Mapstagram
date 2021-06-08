@@ -2,6 +2,7 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true
   },
+  darkMode: 'media',
   purge: {
     content: ['./src/**/*.js', './src/**/**/*.js']
   },
@@ -30,7 +31,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      display: ['group-hover']
+      display: ['group-hover'],
+      textOpacity: ['dark']
     }
   }
 };

@@ -17,11 +17,12 @@ export default function Dashboard({ user: loggedInUser }) {
   return (
     <LoggedInUserContext.Provider value={{ user }}>
       <div className="bg-gary-backgorund">
-        <Header />
-        <Sidebar />
-        <div className="grid grid-cols-2 gap-4 justify-between mx-auto max-w-screen-lg">
+        <Header className="text-gray-300 dark:text-gray-500" />
+        <div className="grid grid-cols-4 gap-4 justify-between mx-auto max-w-screen-2xl">
           <Map />
+          <>..</>
           <Timeline />
+          <Sidebar />
         </div>
       </div>
     </LoggedInUserContext.Provider>

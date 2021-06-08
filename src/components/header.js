@@ -1,16 +1,20 @@
-import { useContext } from 'react';
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable array-callback-return */
+import { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import UserContext from '../context/user';
 import * as ROUTES from '../constants/routes';
 import { DEFAULT_IMAGE_PATH } from '../constants/paths';
 import useUser from '../hooks/use-user';
+import JSONDATA from './MOCK_DATA.json';
 
 export default function Header() {
   const { user: loggedInUser } = useContext(UserContext);
   const { user } = useUser(loggedInUser?.uid);
   const { firebase } = useContext(FirebaseContext);
   const history = useHistory();
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <header className="h-16 bg-white border-b border-gray-primary mb-8">
@@ -28,11 +32,42 @@ export default function Header() {
               type="text"
               placeholder="seach"
               className="border px-1 text-sm bg-gray-200 rounded-sm m-5"
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
             />
+            {JSONDATA.filter((val) => {
+              if (searchTerm === '') {
+                return null;
+              }
+              if (val.hashTag.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return val;
+              }
+            }).map((val, key) => (
+              <div className="hashTag" key={key}>
+                <p className="font-bold text-xs">{val.hashTag}</p>
+              </div>
+            ))}
           </div>
           <div className="text-gray-700 text-center flex items-center align-items">
             {loggedInUser ? (
               <>
+                <Link to={ROUTES.WRITE} aria-label="write">
+                  <svg
+                    className="h-6 w-14"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 22 22"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </Link>
                 <Link to={ROUTES.DASHBOARD} aria-label="Dashboard">
                   <svg
                     className="w-8 mr-6 text-black-light cursor-pointer"
