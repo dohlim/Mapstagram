@@ -17,7 +17,14 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user }}>
       <Router>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense
+          fallback={
+            <div className="place-self-center ">
+              <img src="/images/logogo.png" alt="Mastagram" className="" />
+              <p>Loading....</p>
+            </div>
+          }
+        >
           <Switch>
             <Route path={ROUTES.LOGIN} component={Login} />
             <Route path={ROUTES.SIGN_UP} component={SignUp} />
