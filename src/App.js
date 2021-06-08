@@ -19,8 +19,8 @@ export default function App() {
       <Router>
         <Suspense
           fallback={
-            <div className="place-self-center ">
-              <img src="/images/logogo.png" alt="Mastagram" className="" />
+            <div className="flex flex-row justify-center">
+              <img src="/images/logogo.png" alt="Mastagram" />
               <p>Loading....</p>
             </div>
           }
