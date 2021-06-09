@@ -34,11 +34,11 @@ export default function Comments({ docId, comments: allComments, posted, comment
               }
             }}
           >
-            View more comments
+            댓글 더보기
           </button>
         )}
         <p className="text-gray-base uppercase text-xs mt-2">
-          {formatDistance(posted, new Date())} ago
+          {formatDistance(posted, new Date())} 전
         </p>
       </div>
       <AddComment
