@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
@@ -77,7 +78,7 @@ export default function Header({
                   }
                 }}
               >
-                {isFollowingProfile ? 'Unfollow' : 'Follow'}
+                {isFollowingProfile ? '언팔로우' : '팔로우'}
               </button>
             )
           )}
@@ -87,16 +88,17 @@ export default function Header({
             <Skeleton count={1} width={677} height={24} />
           ) : (
             <>
+              게시물
               <p className="mr-10">
-                <span className="font-bold">{photosCount}</span> photos
+                <span className="font-bold"> &nbsp; {photosCount} </span>
               </p>
+              팔로워
               <p className="mr-10">
-                <span className="font-bold">{followerCount}</span>
-                {` `}
-                {followerCount === 1 ? `follower` : `followers`}
+                <span className="font-bold"> &nbsp; {followerCount} </span>
               </p>
+              팔로우
               <p className="mr-10">
-                <span className="font-bold">{following?.length}</span> following
+                <span className="font-bold"> &nbsp; {following?.length} </span>
               </p>
             </>
           )}

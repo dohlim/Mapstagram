@@ -40,18 +40,18 @@ export default function AddComment({ docId, comments, setComments, commentInput 
           className="text-sm text-gray-base w-full mr-3 py-5 px-4"
           type="text"
           name="add-comment"
-          placeholder="Add a comment..."
+          placeholder="댓글 달기"
           value={comment}
           onChange={({ target }) => setComment(target.value)}
           ref={commentInput}
         />
         <button
-          className={`text-sm font-bold text-blue-medium ${!comment && 'opacity-25'}`}
+          className={`text-sm font-bold text-blue-medium w-10 ${!comment && 'opacity-25'}`}
           type="button"
           disabled={comment.length < 1}
           onClick={handleSubmitComment}
         >
-          Post
+          게시
         </button>
       </form>
     </div>
