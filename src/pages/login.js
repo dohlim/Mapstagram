@@ -33,7 +33,7 @@ export default function Login() {
   return (
     <div className="container flex mx-auto max-w-screen-xl items-center h-screen">
       <div className="flex w-3/6 ml-10 mr-5">
-        <img src="/images/mapstagram-login2.png" alt="iPhone with Instagram app" />
+        <img src="/images/mapstagram-login2.png" alt="mapstagram" />
       </div>
       <div className="flex flex-col w-2/5">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">
@@ -65,15 +65,15 @@ export default function Login() {
               className={`bg-blue-medium text-white w-full rounded h-8 font-bold
               ${isInvalid && 'opacity-50'}`}
             >
-              Login
+              로그인
             </button>
           </form>
         </div>
         <div className="flex justify-center items-center flex-col w-full bg-white p-4 rounded border border-gray-primary">
           <p className="text-sm">
-            Don't have an account?{' '}
+            계정이 없습니까?{' '}
             <Link to={ROUTES.SIGN_UP} className="font-bold text-blue-medium">
-              Sign up
+              회원가입
             </Link>
           </p>
         </div>

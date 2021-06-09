@@ -52,7 +52,7 @@ export default function SignUp() {
       }
     } else {
       setUsername('');
-      setError('That username is already taken, plese try another');
+      setError('현재 유저이름은 사용되고 있습니다. 다른 유저 이름을 사용하세요.');
     }
   };
 
@@ -61,9 +61,9 @@ export default function SignUp() {
   }, []);
 
   return (
-    <div className="container flex mx-auto max-w-sereen-md items-center h-screen">
-      <div className="flex w-3/5">
-        <img src="/images/iphone-with-profile.jpg" alt="iPhone with Instagram app" />
+    <div className="container flex mx-auto max-w-screen-xl items-center h-screen">
+      <div className="flex w-3/6 ml-10 mr-5">
+        <img src="/images/mapstagram-login2.png" alt="mapstagram" />
       </div>
       <div className="flex flex-col w-2/5">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">
@@ -73,7 +73,7 @@ export default function SignUp() {
           {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
           <form onSubmit={handleSignUp} method="POST">
             <input
-              aria-label="Enter your username"
+              aria-label="user name"
               type="text"
               placeholder="Username"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 
@@ -82,7 +82,7 @@ export default function SignUp() {
               value={username}
             />
             <input
-              aria-label="Enter your full name"
+              aria-label="Full name"
               type="text"
               placeholder="Full name"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 
@@ -91,7 +91,7 @@ export default function SignUp() {
               value={fullName}
             />
             <input
-              aria-label="Enter your email address"
+              aria-label="이메일"
               type="text"
               placeholder="Email address"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 
@@ -115,15 +115,15 @@ export default function SignUp() {
               className={`bg-blue-medium text-white w-full rounded h-8 font-bold
               ${isInvalid && 'opacity-50'}`}
             >
-              Sign Up
+              회원가입
             </button>
           </form>
         </div>
         <div className="flex justify-center items-center flex-col w-full bg-white p-4 rounded border border-gray-primary">
           <p className="text-sm">
-            Have an account?{' '}
+            계정이 있습니까?{' '}
             <Link to={ROUTES.LOGIN} className="font-bold text-blue-medium">
-              Login
+              로그인
             </Link>
           </p>
         </div>

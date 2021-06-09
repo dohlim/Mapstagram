@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-use-before-define */
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const { kakao } = window;
 
@@ -18,6 +19,40 @@ const Map = () => {
     const marker = new kakao.maps.Marker(); // 클릭한 위치를 표시할 마커입니다
     const infowindow = new kakao.maps.InfoWindow({ zindex: 1 }); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
     const latLng = map.getCenter();
+
+    // 현 위치 및 마커 표시 코드 시작
+    if (navigator.geolocation) {
+      // eslint-disable-next-line
+      navigator.geolocation.getCurrentPosition(function (position) {
+        let lat = '';
+        let lng = '';
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+
+        // eslint-disable-next-line
+        let locPosition = new kakao.maps.LatLng(lat, lng);
+
+        // eslint-disable-next-line
+        displayMarker(locPosition);
+
+        // eslint-disable-next-line
+        let zoomControl = new kakao.maps.ZoomControl();
+        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+      });
+    }
+
+    function displayMarker(locPosition) {
+      // 마커를 생성합니다
+
+      // eslint-disable-next-line
+      var marker = new kakao.maps.Marker({
+        // eslint-disable-next-line
+        map: map,
+        position: locPosition
+      });
+      map.setCenter(locPosition);
+    }
+    // 현 위치 및 마커 표시 코드 끝.
 
     // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
     searchAddrFromCoords(latLng, displayCenterInfo);
