@@ -56,7 +56,7 @@ export default function Write() {
         <div className="bg-gray-background">
           <Header />
         </div>
-        <div className="flex h-screen bg-gray-200 items-center justify-center  mt-32 mb-32">
+        <div className="flex h-screen bg-gray-200 items-center justify-center  mt-80 mb-32 ">
           <div className="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
             <div className="flex justify-center py-4">
               <div className="flex bg-purple-200 rounded-full md:p-4 p-2 border-2 border-purple-300">
