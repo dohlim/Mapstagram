@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { updateLoggedInUserFollowing, updateFollowedUserFollowers } from '../../serviecs/firebase';
+import {
+  updateLoggedInUserFollowing,
+  updateFollowedUserFollowers,
+  getUserByUserId
+} from '../../serviecs/firebase';
+import LoggedInUserContext from '../../context/logged-in-user';
 
 export default function SuggestedProfile({
   profileDocId,
@@ -11,12 +16,16 @@ export default function SuggestedProfile({
   loggedInUserDocId
 }) {
   const [followed, setFollowed] = useState(false);
+  const { setActiveUser } = useContext(LoggedInUserContext);
 
   async function handleFollowUser() {
     setFollowed(true);
     await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
     await updateFollowedUserFollowers(profileDocId, userId, false);
+    const [user] = await getUserByUserId(userId);
+    setActiveUser(user);
   }
+
   return !followed ? (
     <div className="flex flex-row items-center align-items justify-between">
       <div className="flex items-center justify-between">
@@ -24,6 +33,9 @@ export default function SuggestedProfile({
           className="rounded-full w-8 flex mr-3"
           src={`/images/avatars/${username}.jpg`}
           alt=""
+          onError={(e) => {
+            e.target.src = `/images/avatars/default.png`;
+          }}
         />
         <Link to={`/p/${username}`}>
           <p className="font-bold text-sm">{username}</p>
@@ -34,7 +46,7 @@ export default function SuggestedProfile({
         type="button"
         onClick={handleFollowUser}
       >
-        팔로우
+        Follow
       </button>
     </div>
   ) : null;
