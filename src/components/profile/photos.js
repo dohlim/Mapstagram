@@ -51,7 +51,8 @@ export default function Photos({ photos }) {
           : null}
       </div>
 
-      {!photos || (photos.length === 0 && <p className="text-center text-2xl">No Posts Yet</p>)}
+      {!photos ||
+        (photos.length === 0 && <p className="text-center text-2xl">게시글이 없습니다.</p>)}
     </div>
   );
 }
